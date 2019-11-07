@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "A simplistic carousel component for react applications.",
   "main": "lib/index.js",
+  "repository": "github:brslv/react-essential-carousel",
   "scripts": {
     "prepublishOnly": "babel ./src --out-dir ./lib -s inline && cp ./src/styles.css ./lib/styles.css"
   },
