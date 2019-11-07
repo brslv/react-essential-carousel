@@ -1,0 +1,35 @@
+.carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel * {
+    box-sizing: border-box;
+}
+
+.carousel-inner {
+    transform-style: preserve-3d;
+}
+
+.carousel-item {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+}
+
+.carousel-item--active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+.carousel-item--transition-prev {
+    max-height: 0;
+    z-index: 800;
+    transform: translateX(-100%);
+}
+
+.carousel-item--transition-next {
+    z-index: 800;
+    transform: translateX(100%);
+}

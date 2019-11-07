@@ -1,0 +1,35 @@
+{
+  "name": "react-essential-carousel",
+  "version": "1.0.1",
+  "description": "A simplistic carousel component for react applications.",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "babel ./src --out-dir ./lib -s inline && cp ./src/styles.css ./lib/styles.css"
+  },
+  "files": [
+    "lib/*"
+  ],
+  "keywords": [
+    "react",
+    "carousel",
+    "minimalistic",
+    "simplistic"
+  ],
+  "author": "Borislav Grigorov <borislav.b.grigorov@gmail.com>",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
+}
