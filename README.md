@@ -1,3 +1,8 @@
+# react-essential-carousel
+
+![size](https://badgen.net/bundlephobia/min/react-essential-carousel)
+![zip size](https://badgen.net/bundlephobia/minzip/react-essential-carousel)
+
 ## Info
 
 The `react-essential-carousel` is a very simple, entirely decoupled carousel component, which provides only the needed few essential component to incorporate a carousel functionality in your app.
