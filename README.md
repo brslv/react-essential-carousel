@@ -44,7 +44,7 @@ export function App() {
   const { prev, next } = useCarousel();
 
   return (
-    <CarouselProvider>
+    <div>
       <Carousel speed={500 /* this is in ms */}>
         <Slide>
           <div>Slide 1</div>
@@ -59,7 +59,7 @@ export function App() {
 
       <button onClick={prev}>Prev</button>
       <button onClick={next}>Next</button>
-    </CarouselProvider>
+    </div>
   );
 }
 ```
