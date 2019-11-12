@@ -16,6 +16,7 @@
   position: absolute;
   opacity: 0;
   top: 0;
+  width: 0;
 
   z-index: -1;
   transform: translateX(0);
@@ -25,4 +26,5 @@
   opacity: 1;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
