@@ -9,6 +9,9 @@
 
 .carousel-inner {
   transform-style: preserve-3d;
+  overflow: hidden;
+	width: 100%;
+	position: relative;
 }
 
 .carousel-item {
