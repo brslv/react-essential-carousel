@@ -1,6 +1,6 @@
 {
   "name": "react-essential-carousel",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A simplistic carousel component for react applications.",
   "main": "lib/index.js",
   "repository": "github:brslv/react-essential-carousel",
