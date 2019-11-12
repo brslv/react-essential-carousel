@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import {
+  compose,
   partial,
   partialRight,
   pipe,
@@ -37,10 +38,6 @@ function handleOutOfBottomBoundary() {
   return ifElse(isOutOfBottomBoundary(), zeroify, identity);
 }
 
-function updateIdxOnItemsCountChange(itemsCount, setIdx) {
-  return when(gt(itemsCount), partial(setIdx, [itemsCount - 1]));
-}
-
 function isNotEmptyStr(str) {
   return str !== "";
 }
@@ -67,6 +64,7 @@ export function CarouselProvider({ children }) {
 
   const next = partial(updateIdx, [idx + 1]);
   const prev = partial(updateIdx, [idx - 1]);
+  const goTo = compose(updateIdx);
 
   useEffect(partial(updateIdx, [idx]), [itemsCount]);
 
@@ -86,6 +84,7 @@ export function CarouselProvider({ children }) {
     idx,
     prev,
     next,
+    goTo,
     itemsCount,
     setItemsCount
   };
@@ -116,8 +115,8 @@ export function Carousel({ children, speed }) {
       <div className="carousel-inner">
         {children.map((child, i) => {
           const isActive = i === idx;
-          const isPrev = i === idx - 1;
-          const isNext = i === idx + 1;
+          const isPrev = i < idx;
+          const isNext = i > idx;
           const baseCloneProps = { active: isActive, key: i };
           const cloneProps = isActive
             ? baseCloneProps
@@ -142,11 +141,14 @@ export function Slide({ children, isPrev, isNext, active }) {
     classIf(isPrev, "carousel-item--transition-prev"),
     classIf(isNext, "carousel-item--transition-next")
   ]);
-  const transitionSpeed = speed / 1000;
-  const transition = `transform ${transitionSpeed}s, opacity ${transitionSpeed}s, z-index ${transitionSpeed}s`;
+  const translateXValue = active ? 0 : isPrev ? -100 : 100;
+  const transitionSpeed = `${speed / 1000}s`;
+  const translate = `translateX(${translateXValue}%)`;
+  const ease = "ease-in-out 0s";
+  const transition = `transform ${transitionSpeed} ${ease}, opacity ${transitionSpeed} ${ease}, z-index ${transitionSpeed} ${ease}`;
 
   return (
-    <div className={className} style={{ transition }}>
+    <div className={className} style={{ transition, transform: translate }}>
       {children}
     </div>
   );
