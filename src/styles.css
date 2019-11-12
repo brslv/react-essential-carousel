@@ -1,38 +1,28 @@
 .carousel {
-    overflow: hidden;
-    width: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 .carousel * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .carousel-inner {
-    transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  overflow: hidden;
 }
 
 .carousel-item {
-    position: absolute;
-    opacity: 0;
-    top: 0;
+  position: absolute;
+  opacity: 0;
+  top: 0;
 
-    z-index: -1;
-    transform: translateX(0);
+  z-index: -1;
+  transform: translateX(0);
 }
 
 .carousel-item--active {
-    opacity: 1;
-    position: relative;
-    z-index: 1;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
 }
-
-/* .carousel-item--transition-prev {
-    max-height: 0;
-    z-index: 800;
-    transform: translateX(-100%);
-}
-
-.carousel-item--transition-next {
-    z-index: 800;
-    transform: translateX(100%);
-} */
