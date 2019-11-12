@@ -16,14 +16,14 @@
     opacity: 0;
     top: 0;
 
-    z-index: 800;
+    z-index: -1;
     transform: translateX(0);
 }
 
 .carousel-item--active {
     opacity: 1;
     position: relative;
-    z-index: 900;
+    z-index: 1;
 }
 
 /* .carousel-item--transition-prev {
