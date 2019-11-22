@@ -34,8 +34,12 @@ function isOutOfBottomBoundary() {
   return partialRight(lt, [0]);
 }
 
-function handleOutOfBottomBoundary() {
-  return ifElse(isOutOfBottomBoundary(), zeroify, identity);
+function handleOutOfBottomBoundary(itemsCount) {
+  return ifElse(
+    isOutOfBottomBoundary(),
+    partial(identity, [decrement(itemsCount)]),
+    identity
+  );
 }
 
 function isNotEmptyStr(str) {
@@ -71,8 +75,8 @@ export function CarouselProvider({ children }) {
   function updateIdx(nextIdx) {
     const setIdxInRange = ifElse(
       isOutOfTopBoundary(itemsCount),
-      partial(decrement, [itemsCount]),
-      handleOutOfBottomBoundary()
+      zeroify,
+      handleOutOfBottomBoundary(itemsCount)
     );
 
     setIdx(setIdxInRange(nextIdx));
